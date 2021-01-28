@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - covid19
+name: Build and deploy React app to Azure Web App - covid19
 
 on:
   push:
@@ -32,4 +32,4 @@ jobs:
         app-name: 'covid19'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_4f06abc1150e4837ad001228c8d00026 }}
-        package: .
+        package: './dist'
