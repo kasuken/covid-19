@@ -1,9 +1,9 @@
+import covidActionTypes from "../action-types/covidActionTypes";
 
-
-const timeseriesReducer = ( state = {}, action ) => {
-    switch ( action.type ) {
-        case 'REGISTER_COVID_TS_DATA':
-            state = action.payload;
+const timeseriesReducer = ( state = {}, {type, payload} ) => {
+    switch (type) {
+        case covidActionTypes.REGISTER_COVID_TS_DATA:
+            state = payload;
             return state;
             break;
         default:
