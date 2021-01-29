@@ -62,7 +62,7 @@ const About = () => {
                     </ul>
                 </p>
                 <br />
-                <a href="https://www.emanuelebartolesi.com" target="_blank">
+                <a href="https://dev.to/kasuken" target="_blank">
                 Contact me
                 </a> for any further questions.
                 
