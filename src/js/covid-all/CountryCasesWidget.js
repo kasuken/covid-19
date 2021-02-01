@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import {
     ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -8,8 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 import COLOR_CODES from '../utils/color_codes';
 
-const CountryCasesWidget = props => {
-    const data = props.data;
+const CountryCasesWidget = ({ data }) => {
     const TOP_N = 15;
 
     let refinedData = [];

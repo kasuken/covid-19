@@ -17,15 +17,14 @@ import CompareWidget from './covid-all/CompareWidget';
 import CountryTestCase from './covid-all/CountryTestCase';
 
 import world from '../../assets/images/world.png';
+import URLS from "./utils/url";
 
-const World = props => {
+const World = ({ history }) => {
     const covid19Data = useSelector(state => state.covid19);
     let data = covid19Data.filter(elem => {
         return elem['country'] !== 'World';
     })
-    const [allData, allDataLoading] = useFetch(
-        "https://corona.lmao.ninja/v2/all"
-    );
+    const [allData, allDataLoading] = useFetch(`${URLS.BASE_CORONA}/all`);
     const [filtered, setFiltered] = useState([]);
     const columnDefs = [
         { headerName: "Country", field: "country", sortable: true, filter: true },
@@ -69,7 +68,7 @@ const World = props => {
                 </Row>
                 <Row className="worldCharts">
                     <Col sm={12}>
-                        <CompareWidget history={props.history}/>
+                        <CompareWidget history={history}/>
                     </Col>
                 </Row>
                 <Row className="worldCharts">

@@ -23,12 +23,11 @@ import GitHub from './GitHub';
 import { registerCovid19Data } from './actions/covidAction';
 
 import * as covid from '../../assets/images/covid.png';
+import URLS from "./utils/url";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [countryCoronaData, countryCoronaDataLoading] = useFetch(
-    "https://corona.lmao.ninja/v2/countries"
-  );
+  const [countryCoronaData, countryCoronaDataLoading] = useFetch(`${URLS.BASE_CORONA}/countries`);
   
   if (!countryCoronaDataLoading) {
     dispatch(registerCovid19Data(countryCoronaData));

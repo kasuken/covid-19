@@ -1,14 +1,10 @@
-
-
 import React from "react";
 import Button from 'react-bootstrap/Button';
-
-
 import COUNTRY_CODES from '../utils/country_code';
+import URLS from "../utils/url";
 
-const FetchTimeSeries = props => {
-    const country = props.country;
-    const size = props.size ? props.size : 48;
+const FetchTimeSeries = ({ country, size, history }) => {
+    const iconSize = size ? size : 48;
     
     let selectedCountry = [];
     let image = '';
@@ -18,13 +14,13 @@ const FetchTimeSeries = props => {
     });
     if (selectedCountry.length > 0) {
         let countryCode = selectedCountry[0]['alpha2code'];
-        image =  <img src={`https://www.countryflags.io/${countryCode}/flat/${size}.png`} alt={country} />
+        image =  <img src={`${URLS.BASE_COUNTRY_FLAGS}/${countryCode}/flat/${iconSize}.png`} alt={country} />
     }
 
     const getCountryDetails = (event, country) => {
         event.preventDefault();
-        if (props.history) {
-            props.history.push(`/country-details?name=${country}`);
+        if (history) {
+            history.push(`/country-details?name=${country}`);
         }
     }
     

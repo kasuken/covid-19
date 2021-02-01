@@ -10,9 +10,9 @@ import COUNTRY_CODES from './utils/country_code';
 import TimeSeries from './time-series/TimeSeries';
 import HomePageSelector from './HomePageSelector';
 import {reactLocalStorage} from 'reactjs-localstorage';
-import Loader from 'react-loader-spinner';
+import URLS from './utils/url';
 
-const Country = props => {
+const Country = (props) => {
     const queriedCountry = props.location ? 
                             new URLSearchParams(props.location.search).get('name') : 
                             props.countryName;
@@ -93,7 +93,7 @@ const Country = props => {
                         {
                             getCountryCode(countryName) !== '' ?
                                 <img
-                                    src={`https://www.countryflags.io/${getCountryCode(countryName)}/flat/64.png`}
+                                    src={`${URLS.BASE_COUNTRY_FLAGS}/${getCountryCode(countryName)}/flat/64.png`}
                                     alt={countryName}
                                     className="flag" /> : null
                         }

@@ -6,8 +6,7 @@ import {
 } from 'recharts';
 import Card from 'react-bootstrap/Card';
 
-const TopNRecoveredWidget = props => {
-    const data = props.data;
+const TopNRecoveredWidget = ({ data }) => {
     const TOP_N = 5;
     const MIN_CASES = 10000;
     const SUCCESS_COLOR_SHADES = [

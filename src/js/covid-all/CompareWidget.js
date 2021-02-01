@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import {
     ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -11,6 +9,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import FetchTimeSeries from '../time-series/FetchTimeSeries';
 import { useFetch } from '../useFetch';
 import CountrySelector from '../CountrySelector';
+import URLS from '../utils/url';
 
 let randomColor = require('randomcolor');
 const COLOR_ARRAY = randomColor({
@@ -20,7 +19,7 @@ const COLOR_ARRAY = randomColor({
  });
 
 
-const CompareWidget = props => {
+const CompareWidget = ({ history }) => {
      // import the script
     
     let defaultCountries = {
@@ -34,7 +33,7 @@ const CompareWidget = props => {
     if (storedCountries && Object.keys(storedCountries).length > 0) {
         defaultCountries = storedCountries;
     }
-    const [data, loading] = useFetch('https://pomber.github.io/covid19/timeseries.json');
+    const [data, loading] = useFetch(URLS.TIMESERIES);
     const [selectedCountries, setSelectedCountries] = useState(defaultCountries);
     
     const getCountryResolvedName = input => {
@@ -188,7 +187,7 @@ const CompareWidget = props => {
                                     Countries(<b>{getCountriesToCompare().length}</b>) :
                                     {
                                         getCountriesToCompare().map((entry, index) => 
-                                            <FetchTimeSeries  key={`fts-${index}`} country={getCountryFlagName(entry)} size='16' history={props.history}/>)
+                                            <FetchTimeSeries  key={`fts-${index}`} country={getCountryFlagName(entry)} size='16' history={history}/>)
                                     }
                                 </Card.Subtitle> 
                                 : null 

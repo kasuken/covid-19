@@ -4,8 +4,7 @@ import {
 } from 'recharts';
 import Card from 'react-bootstrap/Card';
 
-const TimeSeriesPercentage = props => {
-    const data = props.data;
+const TimeSeriesPercentage = ({ data }) => {
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload[0]) {

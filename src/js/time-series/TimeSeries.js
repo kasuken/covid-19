@@ -8,10 +8,10 @@ import Card from 'react-bootstrap/Card';
 
 import TimeSeriesBroken from './TimeSeriesBroken';
 import TimeSeriesPercentage from './TimeSeriesPercentage';
+import URLS from "../utils/url";
 
-const TimeSeries = props => {
-    const [data, loading] = useFetch('https://pomber.github.io/covid19/timeseries.json');
-    const country = props.country;
+const TimeSeries = ({country}) => {
+    const [data, loading] = useFetch(URLS.TIMESERIES);
 
     const getProposedName = country => {
         if (country === 'S. Korea') {

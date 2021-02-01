@@ -7,7 +7,7 @@ import Country from './Country';
 
 import {reactLocalStorage} from 'reactjs-localstorage';
 
-const Home = props => {
+const Home = () => {
 
     const countryNameFromStorage = reactLocalStorage.getObject('country_selection');
     

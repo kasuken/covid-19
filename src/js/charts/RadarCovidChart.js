@@ -13,10 +13,10 @@ import {
 
 import COLOR_CODES from '../utils/color_codes';
 
-const RadarCovidChart = props => {
+const RadarCovidChart = ({ radarData, chartKey, top_n }) => {
 
-    const data = props.radarData;
-    const key = props.chartKey;
+    const data = radarData;
+    const key = chartKey;
 
     let color = COLOR_CODES.RANDOM.BLACK;
     let name = 'None';
@@ -34,7 +34,7 @@ const RadarCovidChart = props => {
         name = 'Confirmed';
     }
 
-    let sliced = data.slice(0, props.top_n);
+    let sliced = data.slice(0, top_n);
     console.log('RadarCovidChart', sliced, key);
 
     return(

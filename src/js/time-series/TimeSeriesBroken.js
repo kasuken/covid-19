@@ -1,5 +1,3 @@
-
-
 import React, {useState} from 'react';
 import {
     ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -8,8 +6,8 @@ import Card from 'react-bootstrap/Card';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 
-const TimeSeriesBroken = props => {
-    const data = props.data;
+const TimeSeriesBroken = ({ data }) => {
+
     const [type, setType] = useState('confirmed');
     const [chartColor, setChartColor] = useState('#17A2B8');
     const [btnState, setBtnState] = useState({
