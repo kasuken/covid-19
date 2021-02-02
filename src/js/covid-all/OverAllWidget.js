@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Badge from 'react-bootstrap/Badge';
 import Card from 'react-bootstrap/Card';
@@ -11,9 +9,7 @@ import Moment from 'react-moment';
 import Loader from 'react-loader-spinner';
 import CurrencyFormat from 'react-currency-format';
 
-const WorldData = props => {
-    const loading = props.loading;
-    const data = props.data;
+const WorldData = ({ loading, data }) => {
 
     let refinedData = [];
     if (!loading) {

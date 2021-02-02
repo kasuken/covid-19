@@ -6,8 +6,7 @@ import {
 } from 'recharts';
 import Card from 'react-bootstrap/Card';
 
-const TopNTodayDeath = props => {
-    const data = props.data;
+const TopNTodayDeath = ({ data }) => {
     const TOP_N = 5;
     const DANGER_COLOR_SHADES = [
         "rgba(255, 0, 0, 1.0)",

@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import FetchTimeSeries from './time-series/FetchTimeSeries';
 
-const Countries = props => {
+const Countries = ({ history }) => {
 
     const covid19Data = useSelector(state => state.covid19);
     let data = covid19Data.filter(elem => {
@@ -90,7 +90,7 @@ const Countries = props => {
                 <Row>
                     {filteredCountries.map((country) =>
                         <Col key={country} sm={3}>
-                            <FetchTimeSeries  country={country} history={props.history}/>
+                            <FetchTimeSeries  country={country} history={history}/>
                         </Col>
                     )}
                 </Row>

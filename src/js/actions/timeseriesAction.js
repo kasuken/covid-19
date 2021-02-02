@@ -1,7 +1,6 @@
-
-
 import timeseriesActionTypes from '../action-types/timeseriesActionTypes';
 import store from '../store';
+import URLS from '../utils/url';
 
 export const fetch_timeseries = () => {
     return {
@@ -25,12 +24,12 @@ export const receive_error = () => {
 export const thunk_timeseries_action_creator = () => {
     store.dispatch(fetch_timeseries());
     return function ( dispatch, getState ) {
-        return fetch ( 'https://pomber.github.io/covid19/timeseries.json' )
-            .then ( data => data.json() )
-            .then ( data => {
-                dispatch ( receive_timeseries(data) );
+        return fetch (URLS.TIMESERIES)
+            .then(data => data.json())
+            .then(data => {
+                dispatch(receive_timeseries(data));
             })
-            .catch ( err => dispatch ( receive_error() ));
+            .catch(err => dispatch(receive_error()));
     };
 };
 

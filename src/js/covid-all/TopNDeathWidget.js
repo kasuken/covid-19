@@ -7,8 +7,7 @@ import {
     ResponsiveContainer, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-const TopNDeathWidget = props => {
-    const data = props.data;
+const TopNDeathWidget = ({ data }) => {
     const TOP_N = 5;
     const DANGER_COLOR_SHADES = [
         "rgba(255, 0, 0, 1.0)",
