@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import {reactLocalStorage} from 'reactjs-localstorage';
 
 import FetchTimeSeries from '../time-series/FetchTimeSeries';
-import { useFetch } from '../useFetch';
+import { useFetch } from '../hooks/useFetch';
 import CountrySelector from '../CountrySelector';
 import URLS from '../utils/url';
 
