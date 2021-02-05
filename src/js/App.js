@@ -10,7 +10,7 @@ import Nav from 'react-bootstrap/Nav';
 
 import Loader from 'react-loader-spinner';
 
-import { useFetch } from './useFetch';
+import { useFetch } from './hooks/useFetch';
 
 import Home from './Home';
 import World from './World';

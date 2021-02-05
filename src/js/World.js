@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { useFetch } from './useFetch';
+import { useFetch } from './hooks/useFetch';
 
 import OverAllWidget from './covid-all/OverAllWidget';
 import TopNDeathWidget from './covid-all/TopNDeathWidget';
