@@ -33,7 +33,7 @@ const TimeSeriesPercentage = ({ data }) => {
                     <Card.Title>
                         New Cases Trends - % Changes Per day
                     </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Percentage(%) Changes seen in New Cases at the Daily Basis.</Card.Subtitle>
+                    <Card.Subtitle className="mb-4 text-muted">Percentage(%) Changes seen in New Cases at the Daily Basis.</Card.Subtitle>
                     <div>
                         
                         <ResponsiveContainer width='100%' height={400}>

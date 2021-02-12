@@ -85,7 +85,7 @@ const TimeSeries = ({country}) => {
                                 <Card>
                                     <Card.Body>
                                         <Card.Title>Trends - Change of Confirmed vs Active vs Recovered vs Deaths</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">Total count at the daily basis</Card.Subtitle>
+                                        <Card.Subtitle className="mb-4 text-muted">Total count at the daily basis</Card.Subtitle>
                                         <ResponsiveContainer width='100%' height={400}>
                                             <LineChart data={refinedData}
                                                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
