@@ -33,7 +33,7 @@ const TopNTodayDeath = ({ data }) => {
             <Card >
                 <Card.Body>
                     <Card.Title>Countries with maximum Deaths Today</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Number of Countries: <b>{TOP_N}</b></Card.Subtitle>
+                    <Card.Subtitle className="mb-4 text-muted">Number of Countries: <b>{TOP_N}</b></Card.Subtitle>
                     <div>
                         <ResponsiveContainer width='100%' height={330}>
                             <BarChart

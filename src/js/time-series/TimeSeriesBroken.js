@@ -67,7 +67,7 @@ const TimeSeriesBroken = ({ data }) => {
                             </ButtonGroup>
                         </div>
                     </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Number of New cases reported daily basis</Card.Subtitle>
+                    <Card.Subtitle className="mb-4 text-muted">Number of New cases reported daily basis</Card.Subtitle>
                     <div>
                         
                         <ResponsiveContainer width='100%' height={400}>

@@ -55,7 +55,7 @@ const World = ({ history }) => {
             <Container className="charts" fluid>
                 <Row className="worldHeading">
                     <Col>
-                        <h1>
+                        <h1 className='world__name'>
                             <img
                                 src={world}
                                 height="64px"

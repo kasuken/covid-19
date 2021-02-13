@@ -183,7 +183,7 @@ const CompareWidget = ({ history }) => {
                         </Card.Title>
                         {
                             chartData.length > 0 ?
-                                <Card.Subtitle className="mb-2 text-muted">
+                                <Card.Subtitle className="mb-4 text-muted">
                                     Countries(<b>{getCountriesToCompare().length}</b>) :
                                     {
                                         getCountriesToCompare().map((entry, index) => 

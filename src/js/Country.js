@@ -16,11 +16,9 @@ const Country = (props) => {
     const queriedCountry = props.location ? 
                             new URLSearchParams(props.location.search).get('name') : 
                             props.countryName;
-    const [countryName, setCountryName] = useState(
-        queriedCountry
-    );
-    
+    const [countryName, setCountryName] = useState(queriedCountry);
     const countryCoronaData = useSelector(state => state.covid19);
+    
     const getCountryCode = country => {
         let selectedCountry = COUNTRY_CODES.filter(elem => {
             return elem.name === country;
@@ -49,7 +47,6 @@ const Country = (props) => {
     }
 
     const getIncreasdValue = type => {
-
             if (type === 'confirmed') {
                 return getFormattedIncreased(covid[0].todayCases);
             } else if (type === 'active') {
@@ -68,7 +65,7 @@ const Country = (props) => {
     }
 
     const getPercentage = type => {
-       if (type === 'active') {
+        if (type === 'active') {
             let calc = (covid[0].active/covid[0].cases) * 100;
             return `${ calc.toFixed(2) }%`;
         } else if (type === 'recovered') {
@@ -84,12 +81,12 @@ const Country = (props) => {
         setCountryName(country);
         reactLocalStorage.setObject('country_selection', country);
     }
-   
+
     return(
-       <Container className="country" fluid >
+        <Container className="country" fluid >
             <Row>
                 <Col>
-                    <h1>
+                    <h1 className='country__name'>
                         {
                             getCountryCode(countryName) !== '' ?
                                 <img
@@ -98,9 +95,10 @@ const Country = (props) => {
                                     className="flag" /> : null
                         }
                         {countryName}
-                         <HomePageSelector 
+                        <HomePageSelector 
                             preSelected={countryName}
-                            update={updateCountry}/>
+                            update={updateCountry}
+                        />
                     </h1>
 
                 </Col>
@@ -108,9 +106,10 @@ const Country = (props) => {
             {
                 covid.length > 0 ?
                     <Row className="stat">
-                        <Col sm={3}>
+                        <Col sm={12} md={6} lg={3} className="panel__transparent panel__transparent--total">
                             <Badge variant="info" className="total">
                                 <h3 className="label">Total</h3>
+                                <div className="perct">{' '}</div>
                                 <CurrencyFormat
                                     value={getTotalValue('confirmed')}
                                     displayType={'text'}
@@ -120,7 +119,7 @@ const Country = (props) => {
 
                             </Badge>
                         </Col>
-                        <Col sm={3}>
+                        <Col sm={12} md={6} lg={3} className="panel__transparent panel__transparent--active">
                             <Badge variant="warning" className="active">
                                 <h3 className="label">Active</h3>
                                 <div className="perct">{getPercentage('active')}</div>
@@ -133,36 +132,36 @@ const Country = (props) => {
                                 
                                 
                             </Badge>
-                    </Col>
-                    <Col sm={3}>
-                        <Badge variant="success" className="recovered">
-                            <h3 className="label">Recovered</h3>
-                            <div className="perct">{getPercentage('recovered')}</div>
-                            <CurrencyFormat 
+                        </Col>
+                        <Col sm={12} md={6} lg={3} className="panel__transparent panel__transparent--recovered">
+                            <Badge variant="success" className="recovered">
+                                <h3 className="label">Recovered</h3>
+                                <div className="perct">{getPercentage('recovered')}</div>
+                                <CurrencyFormat 
                                     value={getTotalValue('recovered')} 
                                     displayType={'text'} 
                                     thousandSeparator={true} 
                                     renderText={value => <div className="value">{value}</div>} />
-                            {
-    
-                                    <div className="extra">{getIncreasdValue('recovered')}</div> 
-                            }
-                        </Badge>
-                    </Col> 
-                    <Col sm={3}>
-                        <Badge variant="danger" className="deaths">
-                            <h3 className="label">Deaths</h3>
-                            <div className="perct">{getPercentage('deaths')}</div>
-                            <CurrencyFormat 
-                                    value={getTotalValue('deaths')} 
-                                    displayType={'text'} 
-                                    thousandSeparator={true} 
-                                    renderText={value => <div className="value">{value}</div>} />
-                            
-                            <div className="extra">{getIncreasdValue('deaths')}</div>
-                        </Badge>
-                    </Col>
-                </Row> : null
+                                { getIncreasdValue('recovered')
+                                    ? <div className="extra">{getIncreasdValue('recovered')}</div>
+                                    : <div className="extra">[ Today: N/A ]</div>
+                                }
+                            </Badge>
+                        </Col> 
+                        <Col sm={12} md={6} lg={3} className="panel__transparent panel__transparent--deaths">
+                            <Badge variant="danger" className="deaths">
+                                <h3 className="label">Deaths</h3>
+                                <div className="perct">{getPercentage('deaths')}</div>
+                                <CurrencyFormat 
+                                        value={getTotalValue('deaths')} 
+                                        displayType={'text'} 
+                                        thousandSeparator={true} 
+                                        renderText={value => <div className="value">{value}</div>} />
+                                
+                                <div className="extra">{getIncreasdValue('deaths')}</div>
+                            </Badge>
+                        </Col>
+                    </Row> : null
             }
             <Row className="trends">
                 <Col>

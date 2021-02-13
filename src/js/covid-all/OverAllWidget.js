@@ -31,7 +31,7 @@ const WorldData = ({ loading, data }) => {
                     <Card.Title>
                         Total Cases: <CurrencyFormat value={data.cases} displayType={'text'} thousandSeparator={true} /> as on <Moment format="YYYY/MM/DD">{data.updated}</Moment>
                     </Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Recovery, Deaths and Still Infected</Card.Subtitle>
+                    <Card.Subtitle className="mb-4 text-muted">Recovery, Deaths and Still Infected</Card.Subtitle>
                     <div>
                     {loading ? 
                         <Loader
